@@ -1,0 +1,4 @@
+name: MatchanPluginUtilities
+version: '${version}'
+main: jp.simplespace.matchanpluginutilities.Main
+api-version: 1.16
