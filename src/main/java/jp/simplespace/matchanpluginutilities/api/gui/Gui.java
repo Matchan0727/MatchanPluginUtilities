@@ -51,7 +51,7 @@ public class Gui {
         return new HashMap<>(elementMap);
     }
     public InventoryView openGui(Player player){
-        return player.openInventory(inventory);
+        return player.openInventory(getInventory());
     }
     public static Set<Gui> getGuiSet(){
         return new HashSet<>(guiSet);
