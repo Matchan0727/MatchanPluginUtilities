@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 
-import static jp.simplespace.basegame.api.config.ConfigManager.configs;
+import static jp.simplespace.matchanpluginutilities.api.config.ConfigManager.configs;
 
 public class Config {
     private File file;

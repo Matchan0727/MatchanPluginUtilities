@@ -1,11 +1,62 @@
 plugins {
-    id 'java'
+    id 'java-library'
+    id 'application'
+    id 'maven-publish'
+    id 'signing'
 }
-
 group = 'jp.simplespace'
 version = '1.0-SNAPSHOT'
+dependencies {
+    compileOnly 'org.spigotmc:spigot-api:1.16.5-R0.1-SNAPSHOT'
+    compileOnly 'org.jetbrains:annotations:22.0.0'
+}
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId = 'MatchanPluginUtilities'
+            from components.java
+            pom {
+                name = 'MatchanPluginUtilities'
+                description = 'Spigotプラグイン開発を楽にするためのライブラリ'
+                url = 'https://github.com/Matchan0727/MatchanPluginUtilities'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'matchan'
+                        name = 'Matchan'
+                        email = 'matchan0727ahaha@gmail.com'
+                    }
+                }
+                scm {
+                    connection = 'git@github.com:Matchan0727/MatchanPluginUtilities.git'
+                    developerConnection = 'git@github.com:Matchan0727/MatchanPluginUtilities.git'
+                    url = 'https://github.com/Matchan0727/MatchanPluginUtilities'
+                }
+            }
+        }
+    }
+}
 
 repositories {
+    mavenLocal()
+    maven {
+        url "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2"
+    }
+    maven {
+        def releasesRepoUrl = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2"
+        def snapshotsRepoUrl = "https://s01.oss.sonatype.org/content/repositories/snapshots"
+        url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+        allowInsecureProtocol=true
+        credentials {
+            username = "${sonatypeUsername}"
+            password = "${sonatypePassword}"
+        }
+    }
     mavenCentral()
     maven {
         name = 'spigotmc-repo'
@@ -16,25 +67,8 @@ repositories {
         url = 'https://oss.sonatype.org/content/groups/public/'
     }
 }
-
-dependencies {
-    compileOnly 'org.spigotmc:spigot-api:1.16.5-R0.1-SNAPSHOT'
-}
-
-def targetJavaVersion = 8
-java {
-    def javaVersion = JavaVersion.toVersion(targetJavaVersion)
-    sourceCompatibility = javaVersion
-    targetCompatibility = javaVersion
-    if (JavaVersion.current() < javaVersion) {
-        toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
-    }
-}
-
-tasks.withType(JavaCompile).configureEach {
-    if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
-        options.release = targetJavaVersion
-    }
+signing {
+    sign publishing.publications.mavenJava
 }
 
 processResources {
@@ -45,3 +79,4 @@ processResources {
         expand props
     }
 }
+

@@ -1,6 +1,6 @@
-package jp.simplespace.matchanpluginutilities.game;
+package jp.simplespace.matchanpluginutilities.api.game;
 
-public interface TimeGame extends Game {
+public interface ITimeGame extends IGame {
     void setTime(long second);
     void setTime(int second);
     long getTimeSecond();

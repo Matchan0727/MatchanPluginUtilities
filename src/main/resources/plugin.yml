@@ -1,4 +1,4 @@
-name: MatchanPluginUtilities
+name: M_PluginUtil
 version: '${version}'
 main: jp.simplespace.matchanpluginutilities.Main
 api-version: 1.16

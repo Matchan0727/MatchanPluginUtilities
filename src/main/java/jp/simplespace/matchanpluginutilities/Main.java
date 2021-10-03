@@ -1,6 +1,6 @@
 package jp.simplespace.matchanpluginutilities;
 
-import jp.simplespace.matchanpluginutilities.api.TeamManager;
+import jp.simplespace.matchanpluginutilities.api.team.TeamManager;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -11,7 +11,6 @@ public final class Main extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         plugin = this;
-        TeamManager.init();
     }
 
     @Override

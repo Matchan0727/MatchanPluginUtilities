@@ -1,8 +1,8 @@
-package jp.simplespace.matchanpluginutilities.game;
+package jp.simplespace.matchanpluginutilities.api.game;
 
 import org.bukkit.scheduler.BukkitRunnable;
 
-public interface Game {
+public interface IGame {
     boolean isStarting();
     void start();
     void setRunnable(BukkitRunnable task);

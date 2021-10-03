@@ -1,8 +1,8 @@
-package jp.simplespace.matchanpluginutilities.game;
+package jp.simplespace.matchanpluginutilities.api.game;
 
 import org.bukkit.scheduler.BukkitRunnable;
 
-public abstract class AbstractTimeGame implements TimeGame {
+public abstract class AbstractTimeGame implements ITimeGame {
     boolean isStarting = false;
     long time = 0;
     BukkitRunnable runnable;
