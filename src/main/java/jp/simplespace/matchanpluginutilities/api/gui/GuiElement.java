@@ -16,7 +16,7 @@ public class GuiElement {
         this.action=action;
     }
     public void action(InventoryClickEvent e){
-        action.run(e);
+        action.run(this, e);
     }
     public ItemStack getItemStack(){
         return item;
