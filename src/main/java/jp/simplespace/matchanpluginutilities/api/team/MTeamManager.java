@@ -9,17 +9,17 @@ import org.jetbrains.annotations.Nullable;
 import java.util.HashSet;
 import java.util.Set;
 
-public class TeamManager {
+public class MTeamManager implements ITeamManager<MTeam>{
     private final Set<MTeam> teams = new HashSet<>();
     private Scoreboard scoreboard;
-    public TeamManager(Scoreboard scoreboard){
+    public MTeamManager(Scoreboard scoreboard){
         this.scoreboard=scoreboard;
     }
 
-    boolean addTeam(MTeam team){
+    public boolean addTeam(MTeam team){
         return teams.add(team);
     }
-    boolean removeTeam(MTeam team){
+    public boolean removeTeam(MTeam team){
         return teams.remove(team);
     }
     public MTeam createTeam(String name, String displayName, ChatColor color){

@@ -17,7 +17,7 @@ public class MTeam implements ITeam{
     private Team team;
     private ChatColor color;
 
-    MTeam(Scoreboard scoreboard, String name, String displayName, ChatColor color){
+    public MTeam(Scoreboard scoreboard, String name, String displayName, ChatColor color){
         this.scoreboard=scoreboard;
         this.name=name;
         this.displayName=displayName;

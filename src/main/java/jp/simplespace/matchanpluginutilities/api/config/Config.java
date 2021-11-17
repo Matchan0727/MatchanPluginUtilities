@@ -16,6 +16,7 @@ public class Config {
     private File folder;
     private FileConfiguration config;
     private Plugin plugin;
+    private String name;
     public Config(Plugin pl, File folder, String name){
         plugin=pl;
         this.folder=folder;
@@ -23,6 +24,7 @@ public class Config {
         saveDefaultConfig();
         config= YamlConfiguration.loadConfiguration(file);
         configs.add(this);
+        this.name=name;
     }
     public void reload(){
         file=new File(folder,config.getName());
@@ -46,5 +48,14 @@ public class Config {
         } catch (IOException e) {
             Bukkit.getLogger().log(Level.SEVERE, "Could not save config to " + file, e);
         }
+    }
+    public Plugin getPlugin(){
+        return this.plugin;
+    }
+    public File getFolder(){
+        return this.folder;
+    }
+    public String getName(){
+        return this.name;
     }
 }

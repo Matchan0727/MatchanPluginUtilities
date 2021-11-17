@@ -1,6 +1,5 @@
 package jp.simplespace.matchanpluginutilities;
 
-import jp.simplespace.matchanpluginutilities.api.team.TeamManager;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
