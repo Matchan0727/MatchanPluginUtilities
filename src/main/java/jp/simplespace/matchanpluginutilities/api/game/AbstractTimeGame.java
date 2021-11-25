@@ -2,7 +2,7 @@ package jp.simplespace.matchanpluginutilities.api.game;
 
 import org.bukkit.scheduler.BukkitRunnable;
 
-public abstract class AbstractTimeGame implements ITimeGame {
+public abstract class AbstractTimeGame implements ITimeGame<BukkitRunnable> {
     boolean isStarting = false;
     long time = 0;
     BukkitRunnable runnable;
@@ -21,7 +21,7 @@ public abstract class AbstractTimeGame implements ITimeGame {
     }
 
     @Override
-    public BukkitRunnable getRunnable(BukkitRunnable task) {
+    public BukkitRunnable getRunnable() {
         return runnable;
     }
 

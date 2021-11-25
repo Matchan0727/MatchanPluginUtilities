@@ -1,6 +1,8 @@
 package jp.simplespace.matchanpluginutilities.api.game;
 
-public interface ITimeGame extends IGame {
+import org.bukkit.scheduler.BukkitRunnable;
+
+public interface ITimeGame<E extends BukkitRunnable> extends IGame<E> {
     void setTime(long second);
     void setTime(int second);
     long getTimeSecond();
