@@ -36,7 +36,7 @@ public class Config {
             plugin.saveResource("config.yml",false);
         }
     }
-    public FileConfiguration getConfig(){
+    public FileConfiguration config(){
         return config;
     }
     public File getFile(){

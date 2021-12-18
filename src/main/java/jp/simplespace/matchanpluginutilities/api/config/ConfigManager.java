@@ -19,7 +19,7 @@ public class ConfigManager {
     @Nullable
     public static Config getConfig(String name){
         for(Config config : configs){
-            if(config.getConfig().getName().equals(name)){
+            if(config.config().getName().equals(name)){
                 return config;
             }
         }
