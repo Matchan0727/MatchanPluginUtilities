@@ -12,11 +12,11 @@ import java.util.logging.Level;
 import static jp.simplespace.matchanpluginutilities.api.config.ConfigManager.configs;
 
 public class Config {
-    private File file;
-    private File folder;
-    private FileConfiguration config;
-    private Plugin plugin;
-    private String name;
+    protected File file;
+    protected File folder;
+    protected FileConfiguration config;
+    protected Plugin plugin;
+    protected String name;
     public Config(Plugin pl, File folder, String name){
         plugin=pl;
         this.folder=folder;
